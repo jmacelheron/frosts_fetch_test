@@ -1,0 +1,28 @@
+
+Frost's Fetcher
+<div>
+    <button id="fetch">Fetch</button>
+</div>
+
+
+<script>
+    const endpoint = 'http://127.0.0.1:8000/api/v1/forms/'
+    document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('fetch').addEventListener('click', () => {
+            fetcher(endpoint);
+        })
+    })
+    
+
+    function fetcher(endpoint) {
+        fetch(
+            `${endpoint}`, {
+            method: 'GET'
+        }
+        )
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error)
+        );
+    }
+</script>
